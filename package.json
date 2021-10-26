@@ -1,0 +1,31 @@
+{
+  "name": "coursera-webdev-02",
+  "version": "1.0.0",
+  "description": "Coursera | The Hong Kong University of Science and Technology | Full Stack Web Development with React Specialization Part 1 | Front-End Web UI Frameworks and Tools: Bootstrap 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerg41/coursera-webdev-02.git"
+  },
+  "author": "zerg41",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zerg41/coursera-webdev-02/issues"
+  },
+  "homepage": "https://github.com/zerg41/coursera-webdev-02#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "bootstrap-social": "^5.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.12.9"
+  }
+}
