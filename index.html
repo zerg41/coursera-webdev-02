@@ -46,6 +46,9 @@
                             Hello there! <span class="fa fa-hand-peace-o"></span>
                             I'm zerg41 and this is my new WebDev study project!
                         </p>
+                        <a class="btn btn-outline-light" href="./contact.html#Feedback" role="button">
+                            <strong>Сontact with me</strong>
+                        </a>
                     </div>
                     <div class="d-flex col-md-6 justify-content-center">
                         <img class="img-fluid" src="https://i.imgur.com/AyV2b.png" alt="Hero Logo"
@@ -88,14 +91,74 @@
         </section>
 
         <section class="container pt-4">
-            <div class="media">
+            <div class="media py-4">
+                <div class="media-body">
+                    <h5 class="mt-0">Media heading<span class="badge badge-pill badge-warning">NEW</h5>
+                    <p class="mb-0">Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia.</p>
+                </div>
+                <img class="img-fluid align-self-center mr-3"
+                     src="https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-512.png" 
+                     alt="avatar" width="100" height="100">
+            </div>
+            <div class="media py-4">
                 <img class="img-fluid align-self-center mr-3"
                      src="https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-512.png" 
                      alt="avatar" width="100" height="100">
                 <div class="media-body">
-                    <h5 class="mt-0">Media heading</h5>
+                    <h5 class="mt-0">Media heading<span class="badge badge-pill badge-secondary">OLD</span></h5>
                     <p class="mb-0">Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love, angels are crying from up above. Yeah, you take me to utopia.</p>
                 </div>
+            </div>
+        </section>
+        
+        <section class="container pt-4">
+            <div class="card col-md-8 mx-auto p-0">
+                <h5 class="card-title bg-warning text-white p-2">Rating</h5>
+                <div class="card-body ">
+                    <form action="">
+                        <div class="form-group row">
+                            <label for="rating" class="col-md-4 col-lg-2 col-form-label">Rating Me:</label>
+                            <div class="col-md-4 col-lg-5 btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-light">
+                                  <input type="radio" name="options" id="option1">1
+                                </label>
+                                <label class="btn btn-light">
+                                  <input type="radio" name="options" id="option2"> 2
+                                </label>
+                                <label class="btn btn-light">
+                                  <input type="radio" name="options" id="option3"> 3
+                                </label>
+                                <label class="btn btn-light">
+                                    <input type="radio" name="options" id="option4"> 4
+                                  </label>
+                                <label class="btn btn-light active">
+                                <input type="radio" name="options" id="option5" checked> 5
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="date" class="col-md-4 col-lg-2 col-form-label">Date & Time:</label>
+                            <div class="col-md-4 col-lg-5">
+                                <input id="date" class="form-control" type="text" 
+                                       name="date" placeholder="Enter Date...">
+                            </div>
+                            <div class="col-md-4 col-lg-5">
+                                <input id="time" class="form-control" type="text" 
+                                       name="time" placeholder="Enter Time...">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-md-4 offset-lg-2 col-md-8 col-lg-10">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                                <button type="reset" class="btn btn-secondary">
+                                    Clear Form
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
             </div>
         </section>
 
