@@ -56,7 +56,7 @@
     </header>
 
     <main class="container">
-
+        <!--Header Section-->
         <section class="row row-content pt-4">
             <div class="col-sm-9">
                 <h2>My History</h2>
@@ -66,36 +66,98 @@
                 </p>
             </div>
         </section>
-
-
+        <!-- Img/Tab Navigation -->
         <section class="row row-content p-2 ">
-            <div class="d-flex col-md-2 p-0 justify-content-md-start justify-content-center">
+            <div class="d-flex col-sm-12 col-lg-2 justify-content-center">
                 <img class="img-fluid" src="https://media.istockphoto.com/vectors/vector-logo-letter-z-glitch-distortion-vector-id1008253688?k=20&m=1008253688&s=170667a&w=0&h=Y9DJsvgJVEFyAvBxuAH6AcNBF0fLFZSafCv5W7ShGC0=" 
                      alt="z-logo">
             </div>
-            <div class="m-2">
-                <h3 class="bg-primary text-white ">Fact #1</h3>
-                <p>
-                    zerg41 is a random word that I came up with when I was at school # 239 in 2008
-                </p>
+            <div class="col-lg-10">
+                <h3 class="bg-primary text-white text-center py-1">Facts About Me</h3>
+                <!-- Tab Navigation -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a id="fact1-tab" class="nav-link active" href="#fact1" role="tab" data-toggle="tab">#1</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#fact2" role="tab" data-toggle="tab">#2</a>
+                    </li>
+                </ul>
+                <!-- Div For Tab Content -->
+                <div class="tab-content">
+                    <div id="fact1" class="tab-pane fade show active" role="tabpanel" aria-labelledby="#fact1-tab">
+                        <p >
+                            zerg41 is a random word that I came up with when I was at school # 239 in 2008
+                        </p>
+                    </div>
+                    <div id="fact2" class="tab-pane fade show" role="tabpanel">
+                        <p>
+                            zerg41 likes banana
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
-
+        <!-- Accordion -->
         <section class="row row-content pt-4">
-            <div class="col-md-4">
-                <h3>Some Topic</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab distinctio incidunt quibusdam quae est impedit sint, quasi eligendi non a in, vel blanditiis enim ex aspernatur voluptatum numquam voluptas architecto. Quae esse vitae facere omnis dolor adipisci corrupti libero? Vel rem animi nobis sequi, error ratione soluta voluptate quia quo.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Some Topic</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab distinctio incidunt quibusdam quae est impedit sint, quasi eligendi non a in, vel blanditiis enim ex aspernatur voluptatum numquam voluptas architecto. Quae esse vitae facere omnis dolor adipisci corrupti libero? Vel rem animi nobis sequi, error ratione soluta voluptate quia quo.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Some Topic</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab distinctio incidunt quibusdam quae est impedit sint, quasi eligendi non a in, vel blanditiis enim ex aspernatur voluptatum numquam voluptas architecto. Quae esse vitae facere omnis dolor adipisci corrupti libero? Vel rem animi nobis sequi, error ratione soluta voluptate quia quo.</p>
+            <header class="col-12">
+                <h3> Accordion Exapmple </h3>
+            </header>
+            <div id="accordion" class="col-12">
+                <article class="card">
+                    <header id="topic-1-head" class="card-header" role="tab">
+                        <h3 class="mb-0">
+                            <a data-toggle="collapse" data-target="#topic-1-body">
+                                Topic 1
+                            </a>
+                        </h3>
+                    </header>
+                    <div id="topic-1-body" class="collapse show" role="tabpanel" 
+                         data-parent="#accordion">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab distinctio incidunt quibusdam quae est impedit sint, quasi eligendi non a in, vel blanditiis enim ex aspernatur voluptatum numquam voluptas architecto. Quae esse vitae facere omnis dolor adipisci corrupti libero? Vel rem animi nobis sequi, error ratione soluta voluptate quia quo.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <header id="topic-2-head" class="card-header" role="tab">
+                        <h3 class="mb-0">
+                            <a data-toggle="collapse" data-target="#topic-2-body">
+                                Topic 2
+                            </a>
+                        </h3>
+                    </header>
+                    <div id="topic-2-body" class="collapse" role="tabpanel" 
+                         data-parent="#accordion">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab distinctio incidunt quibusdam quae est impedit sint, quasi eligendi non a in, vel blanditiis enim ex aspernatur voluptatum numquam voluptas architecto. Quae esse vitae facere omnis dolor adipisci corrupti libero? Vel rem animi nobis sequi, error ratione soluta voluptate quia quo.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <header id="topic-3-head" class="card-header" role="tab">
+                        <h3 class="mb-0">
+                            <a data-toggle="collapse" data-target="#topic-3-body">
+                                Topic 3
+                            </a>
+                        </h3>
+                    </header>
+                    <div id="topic-3-body" class="collapse" role="tabpanel" 
+                         data-parent="#accordion">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab distinctio incidunt quibusdam quae est impedit sint, quasi eligendi non a in, vel blanditiis enim ex aspernatur voluptatum numquam voluptas architecto. Quae esse vitae facere omnis dolor adipisci corrupti libero? Vel rem animi nobis sequi, error ratione soluta voluptate quia quo.
+                            </p>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
-
+        <!-- Tables -->
         <section class="row row-content pt-4">
             <div class="col-12">
                 <h3>Facts &amp; Figures</h3>
@@ -133,7 +195,7 @@
                 </div>
             </div>
         </section>
-
+        <!-- Cards -->
         <section class="row row-content pt-4">
             <h3 class="col-12">Introducing Cards</h3>
             <div class="col-sm-6">
@@ -161,7 +223,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Blockquote Card -->
             <div class="col-12 pt-4">
                 <div class="card card-body bg-light">
                     <blockquote class="blockquote">
@@ -173,7 +235,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-light">
