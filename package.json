@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run lite",
+    "start": "npm run watch:all",
     "lite": "lite-server",
-    "scss": "sass css/styles-sass.scss css/styles-sass.css"
+    "scss": "sass css/styles-sass.scss css/styles-sass.css",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,8 @@
   "homepage": "https://github.com/zerg41/coursera-webdev-02#readme",
   "devDependencies": {
     "lite-server": "^2.6.1",
+    "onchange": "^7.1.0",
+    "parallelshell": "^3.0.1",
     "sass": "^1.43.4"
   },
   "dependencies": {
