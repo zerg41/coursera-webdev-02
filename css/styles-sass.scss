@@ -1,6 +1,7 @@
 /** VARIABLES **/
 // Colors Variables
 $lt-gray: #ddd;
+$lt-white: floralwhite;
 $background-dark: #512DA8;
 $background-light: #9575CD;
 $background-pale: #D1C4E9;
@@ -16,6 +17,10 @@ $carousel-item-height: 300px;
     border-left: 1px solid $lt-gray;
     border-right: 1px solid $lt-gray;
     border-bottom: 1px solid $lt-gray;
+}
+
+@mixin bd-wo-radius {
+    border-radius: 0;
 }
 
 /** NESTED SELECTORS **/
@@ -51,7 +56,7 @@ $carousel-item-height: 300px;
 .jumbotron {
     @include zero_margin(70px, 30px);
     background: $background-light ;
-    color:floralwhite;
+    color: $lt-white;
 }
 
 address{
@@ -80,10 +85,10 @@ body{
     text-transform: uppercase;
     a {
         text-decoration: none;
-        color: white;
+        color: $lt-white;
     }
     .copyright {
-        color: darkolivegreen;
+        color: black;
     }
 }
 
@@ -92,4 +97,24 @@ body{
     position: absolute;
     bottom: 0;
     z-index: 1;
+}
+
+.modal-header {
+    background: $background-dark;
+    color: $lt-white;
+    border: none;
+    button.close {
+        color: $lt-white;
+    }
+}
+
+.modal-body {
+    background: $background-pale;
+    label.col-form-label {
+        font-weight: bold;
+    }
+}
+
+.modal-content div {
+    @include bd-wo-radius;
 }

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link rel="stylesheet" href="css/styles-less.css">
+    <link rel="stylesheet" href="css/styles-sass.css">
 </head>
 <body>
     <header>
@@ -43,7 +43,7 @@
                         </li>
                     </ul>
                     <span class="navbar-text">
-                        <a data-toggle="modal" data-target="#loginModal">
+                        <a id="loginButton" class="btn btn-warning btn-sm">
                             <span class="fa fa-sign-in"></span> Login
                         </a>
                     </span>
@@ -105,8 +105,7 @@
                             I'm zerg41 and this is my new WebDev study project!
                         </p>
                         <!-- Contact With Me Button -->
-                        <a class="btn btn-outline-light" href="#" role="button" 
-                           data-toggle="modal" data-target="#contactModal">
+                        <a id="contactButton" class="btn btn-outline-light" href="#" role="button">
                             <strong>Сontact with me</strong>
                         </a>
                         <!-- Contact Modal -->
@@ -442,6 +441,17 @@
                     $(this).children('span').removeClass('fa-play');
                     $(this).children('span').addClass('fa-pause');
                 }
+            });
+        });
+    </script>
+    <!-- Script for Modals -->
+    <script>
+        $(document).ready(function() {
+            $('#loginButton').click(function() {
+                $('#loginModal').modal('toggle')
+            });
+            $('#contactButton').click(function() {
+                $('#contactModal').modal('toggle')
             });
         });
     </script>
