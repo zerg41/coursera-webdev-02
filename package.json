@@ -4,9 +4,10 @@
   "description": "Coursera | The Hong Kong University of Science and Technology | Full Stack Web Development with React Specialization Part 1 | Front-End Web UI Frameworks and Tools: Bootstrap 4",
   "main": "index.js",
   "scripts": {
-    "start": "npm run lite",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lite": "lite-server"
+    "start": "npm run lite",
+    "lite": "lite-server",
+    "scss": "sass css/styles-sass.scss css/styles-sass.css"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,8 @@
   },
   "homepage": "https://github.com/zerg41/coursera-webdev-02#readme",
   "devDependencies": {
-    "lite-server": "^2.6.1"
+    "lite-server": "^2.6.1",
+    "sass": "^1.43.4"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
