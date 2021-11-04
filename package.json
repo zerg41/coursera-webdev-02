@@ -6,15 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run watch:all",
-    "lite": "lite-server",
-    "scss": "sass css/styles-sass.scss css/styles-sass.css",
-    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
     "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\"",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "scss": "sass css/styles-sass.scss css/styles-sass.css",
+    "lite": "lite-server",
+    "build": "npm run clean && npm run copyfonts && npm run imagemin && npm run usemin",
     "clean": "rimraf dist",
     "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
     "imagemin": "imagemin img/* -o dist/img",
-    "usemin": "usemin contact.html -d dist --htmlmin -o dist/contact.html && usemin about.html -d dist --htmlmin -o dist/about.html && usemin index.html -d dist --htmlmin -o dist/index.html",
-    "build": "npm run clean && npm run copyfonts && npm run imagemin && npm run usemin"
+    "usemin": "usemin contact.html -d dist --htmlmin -o dist/contact.html && usemin about.html -d dist --htmlmin -o dist/about.html && usemin index.html -d dist --htmlmin -o dist/index.html"
   },
   "repository": {
     "type": "git",
@@ -28,12 +28,19 @@
   "homepage": "https://github.com/zerg41/coursera-webdev-02#readme",
   "devDependencies": {
     "cssmin": "^0.4.3",
+    "grunt": "^1.4.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.1.0",
     "htmlmin": "0.0.7",
+    "jit-grunt": "^0.10.0",
     "lite-server": "^2.6.1",
+    "node-sass": "^6.0.1",
     "onchange": "^7.1.0",
     "parallelshell": "^3.0.1",
     "rimraf": "^2.6.2",
     "sass": "^1.43.4",
+    "time-grunt": "^2.0.0",
     "uglifyjs": "^2.4.11",
     "usemin-cli": "^0.6.0"
   },
