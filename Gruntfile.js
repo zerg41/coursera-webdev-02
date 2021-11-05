@@ -4,9 +4,9 @@ module.exports = function(grunt) {
 
     require('time-grunt')(grunt);
     require('jit-grunt')(grunt, {
-        useminPrepare: 'grunt-usemin' // Static mapping используется для объявления плагинов вручную
+        useminPrepare: 'grunt-usemin' // Static mapping
     });
-    const sass = require('node-sass'); // Указываем какой плагин использовать для задачи Sass
+    const sass = require('node-sass'); // Direct Sass implementation module (node-sass or sass) for grunt-sass
 
     grunt.initConfig ({
         sass: {
@@ -72,31 +72,32 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        useminPrepare: {
-            foo: {
-                dest: 'dist',
-                src: ['index.html, contact.html, about.html']
-            },
-            options: {
-                flow: {
-                    steps: {
-                        css: ['cssmin'],
-                        js: ['uglify']
-                    },
-                    post: {
-                        css: [{
-                            name: 'cssmin',
-                            createConfig: function (context, block) {
-                                var generated = context.options.generated;
-                                generated.options = {
-                                    keepSpecialComments: 0, rebase: false
-                                };
-                            }
-                        }]
-                    }
-                }
-            }
-        },
+        /* Module was removed because critical vulnerability */
+        // useminPrepare: {
+        //     foo: {
+        //         dest: 'dist',
+        //         src: ['index.html, contact.html, about.html']
+        //     },
+        //     options: {
+        //         flow: {
+        //             steps: {
+        //                 css: ['cssmin'],
+        //                 js: ['uglify']
+        //             },
+        //             post: {
+        //                 css: [{
+        //                     name: 'cssmin',
+        //                     createConfig: function (context, block) {
+        //                         var generated = context.options.generated;
+        //                         generated.options = {
+        //                             keepSpecialComments: 0, rebase: false
+        //                         };
+        //                     }
+        //                 }]
+        //             }
+        //         }
+        //     }
+        // },
         concat: {
             options: {
                 separator: ';'
@@ -109,12 +110,13 @@ module.exports = function(grunt) {
         cssmin: {
             dist: {} // This configuration is provided by useminPrepare
         },
-        usemin: {
-            html: ['dist/index.html, dist/contact.html, dist/about.html'],
-            options: {
-                assetsDirs: ['dist', 'dist/css', 'dist/js']
-            }
-        },
+        /* Module was removed because critical vulnerability */
+        // usemin: {
+        //     html: ['dist/index.html, dist/contact.html, dist/about.html'],
+        //     options: {
+        //         assetsDirs: ['dist', 'dist/css', 'dist/js']
+        //     }
+        // },
         htmlmin: {
             dist: {
                 options: {
@@ -135,11 +137,11 @@ module.exports = function(grunt) {
                                 'clean', 
                                 'copy', 
                                 'imagemin',
-                                'useminPrepare',
+                                // 'useminPrepare',
                                 'concat',
                                 'cssmin',
                                 'uglify',
-                                'usemin',
+                                // 'usemin',
                                 'htmlmin'
                                 ]
     );

@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/zerg41/coursera-webdev-02#readme",
   "devDependencies": {
+    "browser-sync": "^2.27.7",
     "cssmin": "^0.4.3",
     "grunt": "^1.4.1",
     "grunt-browser-sync": "^2.2.0",
@@ -39,7 +40,8 @@
     "grunt-contrib-uglify": "^5.0.1",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^3.1.0",
-    "grunt-usemin": "^3.1.1",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.0.0",
     "htmlmin": "0.0.7",
     "jit-grunt": "^0.10.0",
     "lite-server": "^2.6.1",
