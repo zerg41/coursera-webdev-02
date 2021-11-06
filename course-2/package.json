@@ -1,0 +1,16 @@
+{
+  "name": "coursera-webdev-02-part2",
+  "version": "1.0.0",
+  "description": "Coursera | The Hong Kong University of Science and Technology | Full Stack Web Development with React Specialization Part 2 | Front-End Web Development with React",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "lite-server"
+  },
+  "author": "zerg41",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
