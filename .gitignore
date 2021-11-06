@@ -106,6 +106,8 @@ dist
 
 ##--- Added by Me ---##
 # Course Sources
-.src/
+*/.src
 # Dist Folder
-dist
+*/dist
+# Node Modules
+*/node_modules
