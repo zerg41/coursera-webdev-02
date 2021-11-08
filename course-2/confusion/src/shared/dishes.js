@@ -46,7 +46,7 @@ export const DISHES =
             }
         ]                        
         },
-        
+
         {
         id: 1,
         name:'Zucchipakoda',
