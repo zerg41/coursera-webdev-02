@@ -3,7 +3,7 @@ import { Component } from 'react/cjs/react.production.min';
 // import DishDetail from './components/DishDetailComponent'; --moved into MainComponent
 // import { Navbar, NavbarBrand} from 'reactstrap'; --moved into MainComponent
 // import Menu from './components/MenuComponent'; --moved into MainComponent
-// import './App.css'; --no longer used
+import './App.css';
 // import { DISHES } from './shared/dishes'; --moved into MainComponent
 import Main from './components/MainComponent';
 
