@@ -89,27 +89,28 @@ import { Link } from 'react-router-dom';
 
         if (selectedDish != null) {
             return(
-                <div className="row">
-                    <div className="col-12">
-                        <Breadcrumb>
-                            <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                            <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
-                            <BreadcrumbItem active>{selectedDish.name}</BreadcrumbItem>
-                        </Breadcrumb>
-                        <h3>{selectedDish.name}</h3>
-                        <hr />
+                <main className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <Breadcrumb>
+                                <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                                <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
+                                <BreadcrumbItem active>{selectedDish.name}</BreadcrumbItem>
+                            </Breadcrumb>
+                            <h3>{selectedDish.name}</h3>
+                            <hr />
+                        </div>
+                        <RenderDish dish={selectedDish} />
+                        {/* <RenderComments dish={selectedDish} /> */}
+                        {/* {comments ? <RenderComments comments={comments} /> : null} */}
+                        <RenderComments comments={comments} />
                     </div>
-                    <RenderDish dish={selectedDish} />
-                    {/* <RenderComments dish={selectedDish} /> */}
-                    {/* {comments ? <RenderComments comments={comments} /> : null} */}
-                    <RenderComments comments={comments} />
-                </div>
-
+                </main>
             );
         }
         else {
             return(
-                <div className="row"></div>
+                <main className="container"></main>
             );
         }
     }

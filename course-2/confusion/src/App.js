@@ -23,7 +23,7 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <div className="App">
+        {/* <div className="App"> */}
           {/* <Navbar dark color = "primary">
             <div className = "container">
               <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
@@ -31,7 +31,7 @@ class App extends Component {
           </Navbar> */}
           {/* <Menu dishes={this.state.dishes} /> */}
           <Main />
-        </div>
+        {/* </div> */}
       </BrowserRouter>
 
     );

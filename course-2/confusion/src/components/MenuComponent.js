@@ -33,17 +33,20 @@ import { Link } from 'react-router-dom';
         });
 
         return (
-            <div className="row">
-                <div className="col-12">
-                    <Breadcrumb>
-                        <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>Menu</BreadcrumbItem>
-                    </Breadcrumb>
-                    <h3>Menu</h3>
-                    <hr />
+            <main className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <Breadcrumb>
+                            <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>Menu</BreadcrumbItem>
+                        </Breadcrumb>
+                        <h3>Menu</h3>
+                        <hr />
+                    </div>
+                    {menu}
                 </div>
-                {menu}
-            </div>
+            </main>
+
         );
     }
 

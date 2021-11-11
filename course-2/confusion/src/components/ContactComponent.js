@@ -4,16 +4,18 @@ import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
 function Contact(props) {
     return(
-        <div className="row">
-            <div className="col-12">
-                <Breadcrumb>
-                    <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>Contact Us</BreadcrumbItem>
-                </Breadcrumb>
-                <h3>Location Information</h3>
-                <hr />
+        <main className="container">
+            <div className="row">
+                <div className="col-12">
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Contact Us</BreadcrumbItem>
+                    </Breadcrumb>
+                    <h3>Location Information</h3>
+                    <hr />
+                </div>
             </div>
-            <div className="row row-content col-12">
+            <div className="row row-content">
                 <div className="col-12 col-sm-4 offset-sm-1">
                         <h5>Our Address</h5>
                         <address>
@@ -36,7 +38,8 @@ function Contact(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+
     );
 }
 

@@ -2,6 +2,7 @@ import { Component } from 'react/cjs/react.production.min';
 // import { Navbar, NavbarBrand} from 'reactstrap'; --moved into HeaderComponent
 import Header from './HeaderComponent';
 import Home from './HomeComponent';
+import About from './AboutComponent';
 import Menu from './MenuComponent';
 import Contact from './ContactComponent';
 import DishDetail from './DishDetailComponent';
@@ -47,6 +48,12 @@ class Main extends Component {
         //     );
         // }
 
+        const AboutPage = () => {
+            return(
+                <About leaders={this.state.leaders} />
+            );
+        }
+
         const MenuPage = () => {
             return(
                 <Menu dishes={this.state.dishes} />
@@ -74,7 +81,7 @@ class Main extends Component {
                     </div>
                 </Navbar> */}
                 <Header />
-                <div className="container">
+                {/* <div className="container"> */}
                     {/* <Menu dishes={this.state.dishes}
                           onClick={(dishId) => this.onDishSelect(dishId)} /> */}
                     {/* <DishDetail selectedDish={this.state.dishes
@@ -87,12 +94,13 @@ class Main extends Component {
                         <Route exact path="/contact" component={ Contact } />
                         {/* To routing with passing props */}
                         {/* <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} /> } /> */}
+                        <Route exact path="/about" component={ AboutPage } />
                         <Route exact path="/menu" component={ MenuPage } />
                         <Route path='/menu/:dishId' component={DishWithId} />
                         {/* Setting the default path */}
                         <Redirect to="/home" />
                     </Switch>
-                </div>
+                {/* </div> */}
                 <Footer />
             </div>
         );
