@@ -1,5 +1,6 @@
 // import logo from './logo.svg'; --no longer used
 import { Component } from 'react/cjs/react.production.min';
+import { BrowserRouter } from 'react-router-dom';
 // import DishDetail from './components/DishDetailComponent'; --moved into MainComponent
 // import { Navbar, NavbarBrand} from 'reactstrap'; --moved into MainComponent
 // import Menu from './components/MenuComponent'; --moved into MainComponent
@@ -21,15 +22,18 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
-        {/* <Navbar dark color = "primary">
-          <div className = "container">
-            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-          </div>
-        </Navbar> */}
-        {/* <Menu dishes={this.state.dishes} /> */}
-        <Main />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          {/* <Navbar dark color = "primary">
+            <div className = "container">
+              <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+            </div>
+          </Navbar> */}
+          {/* <Menu dishes={this.state.dishes} /> */}
+          <Main />
+        </div>
+      </BrowserRouter>
+
     );
   }
 }
