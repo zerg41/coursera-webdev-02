@@ -53,6 +53,19 @@ class Main extends Component {
             );
         }
 
+        const DishWithId = ({match}) => {
+            return(
+                <DishDetail dish={this.state.dishes
+                                 .filter((dish) => 
+                                 dish.id === parseInt(match.params.dishId, 10))[0]}
+                            comments={this.state.comments
+                                 .filter((comment) =>
+                                 comment.dishId === parseInt(match.params.dishId, 10))} 
+                />
+            );
+            
+        }
+
         return (
             <div className="App">
                 {/* <Navbar dark color = "primary">
@@ -75,6 +88,7 @@ class Main extends Component {
                         {/* To routing with passing props */}
                         {/* <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} /> } /> */}
                         <Route exact path="/menu" component={ MenuPage } />
+                        <Route path='/menu/:dishId' component={DishWithId} />
                         {/* Setting the default path */}
                         <Redirect to="/home" />
                     </Switch>
