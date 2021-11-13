@@ -7,40 +7,54 @@ import Menu from './MenuComponent';
 import Contact from './ContactComponent';
 import DishDetail from './DishDetailComponent';
 import Footer from './FooterComponent';
-import { DISHES } from '../shared/dishes';
-import { COMMENTS } from '../shared/comments';
-import { LEADERS } from '../shared/leaders';
-import { PROMOTIONS } from '../shared/promotions';
-import { Route, Redirect, Switch } from 'react-router-dom';
+// import { DISHES } from '../shared/dishes'; --no longer used since switching to Redux
+// import { COMMENTS } from '../shared/comments';
+// import { LEADERS } from '../shared/leaders';
+// import { PROMOTIONS } from '../shared/promotions';
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        dishes: state.dishes,
+        comments: state.comments,
+        promotions: state.promotions,
+        leaders: state.leaders
+    }
+};
 
 class Main extends Component {
 
     constructor(props) {
     super(props);
 
-    this.state = {
-            dishes: DISHES,
-            comments: COMMENTS,
-            leaders: LEADERS,
-            promotions: PROMOTIONS
-            // selectedDish: null
-        };
-    }
+    /* Removed since switching to Redux */
+    // this.state = {
+    //         dishes: DISHES,
+    //         comments: COMMENTS,
+    //         leaders: LEADERS,
+    //         promotions: PROMOTIONS
+    //         // selectedDish: null --no longer used since React Route
+    //     };
+    // }
 
     /* Removed since React Route is used */
     // onDishSelect(dishId) {
     //     this.setState({ selectedDish: dishId });
-    // }
+    };
 
     render() {
 
         const HomePage = () => {
             return(
-                <Home dish={this.state.dishes.filter((dish) => dish.featured)[0]}
-                      promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
-                      leader={this.state.leaders.filter((leader) => leader.featured)[0]} />
+                // <Home dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+                //       promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
+                //       leader={this.state.leaders.filter((leader) => leader.featured)[0]} />
+                <Home dish={this.props.dishes.filter((dish) => dish.featured)[0]}
+                      promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
+                      leader={this.props.leaders.filter((leader) => leader.featured)[0]} />
             );
-        }
+        };
 
         // const ContactPage = () => {
         //     return(
@@ -50,28 +64,36 @@ class Main extends Component {
 
         const AboutPage = () => {
             return(
-                <About leaders={this.state.leaders} />
+                // <About leaders={this.state.leaders} />
+                <About leaders={this.props.leaders} />
             );
-        }
+        };
 
         const MenuPage = () => {
             return(
-                <Menu dishes={this.state.dishes} />
+                // <Menu dishes={this.state.dishes} />
+                <Menu dishes={this.props.dishes} />
             );
-        }
+        };
 
         const DishWithId = ({match}) => {
             return(
-                <DishDetail dish={this.state.dishes
+                // <DishDetail dish={this.state.dishes
+                //                  .filter((dish) => 
+                //                  dish.id === parseInt(match.params.dishId, 10))[0]}
+                //             comments={this.state.comments
+                //                  .filter((comment) =>
+                //                  comment.dishId === parseInt(match.params.dishId, 10))} 
+                // />
+                <DishDetail dish={this.props.dishes
                                  .filter((dish) => 
                                  dish.id === parseInt(match.params.dishId, 10))[0]}
-                            comments={this.state.comments
+                            comments={this.props.comments
                                  .filter((comment) =>
                                  comment.dishId === parseInt(match.params.dishId, 10))} 
                 />
             );
-            
-        }
+        };
 
         return (
             <div className="App">
@@ -104,7 +126,7 @@ class Main extends Component {
                 <Footer />
             </div>
         );
-    }
-}
+    };
+};
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));
