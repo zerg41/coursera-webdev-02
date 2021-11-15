@@ -14,6 +14,7 @@ import Footer from './FooterComponent';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addComment, fetchDishes } from '../redux/ActionCreators';
+import { actions } from 'react-redux-form';
 
 const mapStateToProps = (state) => ({
     // return { --preffered to use {} instead return
@@ -26,7 +27,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
-    fetchDishes: () => {dispatch(fetchDishes())}
+    fetchDishes: () => {dispatch(fetchDishes())},
+    resetFeedbackForm: () => {dispatch(actions.reset('feedback'))}
 
 });
 
@@ -70,11 +72,11 @@ class Main extends Component {
             );
         };
 
-        // const ContactPage = () => {
-        //     return(
-        //         <Contact />
-        //     );
-        // }
+        const ContactPage = () => {
+            return(
+                <Contact resetFeedbackForm={this.props.resetFeedbackForm} />
+            );
+        }
 
         const AboutPage = () => {
             return(
@@ -133,10 +135,8 @@ class Main extends Component {
 
                     {/* Configuring the Router */}
                     <Switch>
-                        {/* To routing without passing props */}
                         <Route path="/home" component={ HomePage } />
-                        <Route exact path="/contact" component={ Contact } />
-                        {/* To routing with passing props */}
+                        <Route exact path="/contact" component={ ContactPage } />
                         {/* <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} /> } /> */}
                         <Route exact path="/about" component={ AboutPage } />
                         <Route exact path="/menu" component={ MenuPage } />
