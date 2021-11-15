@@ -13,7 +13,7 @@ import Footer from './FooterComponent';
 // import { PROMOTIONS } from '../shared/promotions';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addComment } from '../redux/ActionCreators';
+import { addComment, fetchDishes } from '../redux/ActionCreators';
 
 const mapStateToProps = (state) => ({
     // return { --preffered to use {} instead return
@@ -25,7 +25,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment))
+    addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
+    fetchDishes: () => {dispatch(fetchDishes())}
 
 });
 
@@ -49,6 +50,10 @@ class Main extends Component {
     // //     this.setState({ selectedDish: dishId });
     // };
 
+    componentDidMount() {
+        this.props.fetchDishes();
+    }
+    
     render() {
 
         const HomePage = () => {
@@ -56,7 +61,10 @@ class Main extends Component {
                 // <Home dish={this.state.dishes.filter((dish) => dish.featured)[0]}
                 //       promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
                 //       leader={this.state.leaders.filter((leader) => leader.featured)[0]} />
-                <Home dish={this.props.dishes.filter((dish) => dish.featured)[0]}
+                // <Home dish={this.props.dishes.filter((dish) => dish.featured)[0]} --since Redux Thunk the state for dishes no longer avaliable via props.dishes
+                <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
+                      dishesLoading={this.props.dishes.isLoading}
+                      dishesErrMess={this.props.dishes.errMess}
                       promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
                       leader={this.props.leaders.filter((leader) => leader.featured)[0]} />
             );
@@ -78,7 +86,10 @@ class Main extends Component {
         const MenuPage = () => {
             return(
                 // <Menu dishes={this.state.dishes} />
-                <Menu dishes={this.props.dishes} />
+                // <Menu dishes={this.props.dishes} />
+                <Menu dishes={this.props.dishes.dishes}
+                      isLoading={this.props.dishes.isLoading}
+                      errMess={this.props.dishes.errMess} />
             );
         };
 
@@ -92,9 +103,11 @@ class Main extends Component {
                 //                  comment.dishId === parseInt(match.params.dishId, 10))} 
                 // />
                 <DishDetail dish={
-                                this.props.dishes
+                                this.props.dishes.dishes
                                 .filter((dish) => 
                                 dish.id === parseInt(match.params.dishId, 10))[0]}
+                            isLoading={this.props.dishes.isLoading}
+                            errMess={this.props.dishes.errMess}
                             comments={
                                 this.props.comments
                                 .filter((comment) =>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
 
 // function RenderMenuItem(props) --props as a parameter using when we don't know what we want to recieve
 
@@ -32,23 +33,42 @@ import { Link } from 'react-router-dom';
             );
         });
 
-        return (
-            <main className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <Breadcrumb>
-                            <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                            <BreadcrumbItem active>Menu</BreadcrumbItem>
-                        </Breadcrumb>
-                        <h3>Menu</h3>
-                        <hr />
+        if(props.isLoading) {
+            return(
+                <div className="container">
+                    <div className="row">
+                        <Loading />
                     </div>
-                    {menu}
                 </div>
-            </main>
-
-        );
-    }
+            );
+        }
+        else if (props.errMess) {
+            return(
+                <div className="container">
+                    <div className="row">
+                        <h4>{props.errMess}</h4>
+                    </div>
+                </div>
+            );
+        }
+        else {
+            return (
+                <main className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <Breadcrumb>
+                                <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                                <BreadcrumbItem active>Menu</BreadcrumbItem>
+                            </Breadcrumb>
+                            <h3>Menu</h3>
+                            <hr />
+                        </div>
+                        {menu}
+                    </div>
+                </main>
+            );
+        }
+    };
 
 
 export default Menu;
