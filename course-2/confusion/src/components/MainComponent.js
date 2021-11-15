@@ -25,23 +25,23 @@ const mapStateToProps = state => {
 
 class Main extends Component {
 
-    constructor(props) {
-    super(props);
+    // constructor(props) {
+    // super(props);
 
-    /* Removed since switching to Redux */
-    // this.state = {
-    //         dishes: DISHES,
-    //         comments: COMMENTS,
-    //         leaders: LEADERS,
-    //         promotions: PROMOTIONS
-    //         // selectedDish: null --no longer used since React Route
-    //     };
-    // }
+    // /* Removed since switching to Redux */
+    // // this.state = {
+    // //         dishes: DISHES,
+    // //         comments: COMMENTS,
+    // //         leaders: LEADERS,
+    // //         promotions: PROMOTIONS
+    // //         // selectedDish: null --no longer used since React Route
+    // //     };
+    // // }
 
-    /* Removed since React Route is used */
-    // onDishSelect(dishId) {
-    //     this.setState({ selectedDish: dishId });
-    };
+    // /* Removed since React Route is used */
+    // // onDishSelect(dishId) {
+    // //     this.setState({ selectedDish: dishId });
+    // };
 
     render() {
 
