@@ -26,7 +26,10 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values) {
-        alert("New comment: " + JSON.stringify(values));
+        console.log("New comment: " + JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment );
+        this.toggleModal();
+
     }
 
     render() {
@@ -44,7 +47,7 @@ class CommentForm extends Component {
                             <Row className="form-group">
                                 <Label htmlFor="rating" md={12}>Rating</Label>
                                 <Col>
-                                    <Control.select model=".rating" id="rating" name="rate"
+                                    <Control.select model=".rating" id="rating" name="rating"
                                                     className="form-control" defaultValue="5">
                                         <option value="5" selected>5</option>
                                         <option value="4">4</option>

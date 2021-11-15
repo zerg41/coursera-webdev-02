@@ -57,7 +57,7 @@ import CommentForm from './CommentForm';
     //         );
     //     }
     // }
-    function RenderComments({comments}) {
+    function RenderComments({comments, addComment, dishId}) {
 
         const commentsList = comments.map((comment) => {
 
@@ -79,7 +79,7 @@ import CommentForm from './CommentForm';
             <div className="col-12 col-md-5 m-1">
                 <h4>Comments</h4>
                 {commentsList}
-                <CommentForm />
+                <CommentForm dishId={dishId} addComment={addComment} />
             </div>
         );
     }
@@ -88,6 +88,8 @@ import CommentForm from './CommentForm';
 
         const selectedDish = props.dish;
         const comments = props.comments;
+        const addCommentFunc = props.addComment;
+        const selectedDishId = props.dish.id;
 
         if (selectedDish != null) {
             return(
@@ -105,7 +107,9 @@ import CommentForm from './CommentForm';
                         <RenderDish dish={selectedDish} />
                         {/* <RenderComments dish={selectedDish} /> */}
                         {/* {comments ? <RenderComments comments={comments} /> : null} */}
-                        <RenderComments comments={comments} />
+                        <RenderComments comments={comments} 
+                                        addComment={addCommentFunc}
+                                        dishId={selectedDishId} />
                     </div>
                 </main>
             );
