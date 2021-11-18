@@ -209,6 +209,14 @@
       "comment": "Taste fiction!",
       "date": "2021-11-18T11:05:05.531Z",
       "id": 20
+    },
+    {
+      "dishId": 3,
+      "rating": "4",
+      "author": "Test Comment",
+      "comment": "Mmm...delicious!",
+      "date": "2021-11-18T15:04:18.922Z",
+      "id": 21
     }
   ],
   "promotions": [
@@ -271,6 +279,59 @@
       "message": "afadsfds",
       "date": "2017-12-04T09:41:49.890Z",
       "id": 1
+    },
+    {
+      "lastname": "Baglyukov",
+      "telnum": "123546",
+      "email": "abcdef@gh.hi",
+      "agree": true,
+      "contactType": "Email",
+      "message": "Test comment",
+      "date": "2021-11-18T14:49:49.266Z",
+      "id": 2
+    },
+    {
+      "lastname": "Baglyukov",
+      "telnum": "123546",
+      "email": "abcdef@gh.hi",
+      "agree": true,
+      "contactType": "Email",
+      "message": "Test comment",
+      "date": "2021-11-18T14:51:59.113Z",
+      "id": 3
+    },
+    {
+      "firstname": "Theodor",
+      "lastname": "Roosevelt",
+      "telnum": "123456789",
+      "email": "teddy@bear.com",
+      "agree": true,
+      "contactType": "Email",
+      "message": "Something went wrong,,,",
+      "date": "2021-11-18T14:57:37.105Z",
+      "id": 4
+    },
+    {
+      "firstname": "asdasda",
+      "lastname": "sfasfa",
+      "telnum": "12151351",
+      "email": "asda@sfsd.rwer",
+      "agree": true,
+      "contactType": "Tel.",
+      "message": "Test",
+      "date": "2021-11-18T14:58:54.263Z",
+      "id": 5
+    },
+    {
+      "firstname": "Master",
+      "lastname": "Yoda",
+      "telnum": "123456",
+      "email": "star@wars.com",
+      "agree": true,
+      "contactType": "Email",
+      "message": "May the force be with you...always",
+      "date": "2021-11-18T15:02:58.147Z",
+      "id": 6
     }
   ]
 }

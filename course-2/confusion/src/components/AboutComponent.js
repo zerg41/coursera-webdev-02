@@ -1,19 +1,26 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Form, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
+import { Stagger, Fade } from 'react-animation-components';
 
 function RenderLeader( {leader} ) {
     return(
         <Media>
             <Media className="img-fluid align-self-top mr-4">
-                <Media object src={leader.image} alt={leader.name} />
+                <Media object src={baseUrl + leader.image} alt={leader.name} />
             </Media>
             <Media body>
-                <Media heading>
-                    {leader.name}
-                </Media>
-                <p>{leader.designation}</p>
-                <p>{leader.description}</p>
+                <Stagger in>
+                    <Fade in>
+                        <Media heading>
+                        {leader.name}
+                        </Media>
+                        <p>{leader.designation}</p>
+                        <p>{leader.description}</p>
+                    </Fade>
+                </Stagger>
+
             </Media>
         </Media>
     );

@@ -13,7 +13,7 @@ import Footer from './FooterComponent';
 // import { PROMOTIONS } from '../shared/promotions';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postComment, fetchComments, fetchDishes, fetchPromos } from '../redux/ActionCreators';
+import { postComment, postFeedback, fetchComments, fetchDishes, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -28,11 +28,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     // addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)), --since we use a post action
-    postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
     fetchDishes: () => {dispatch(fetchDishes())},
     fetchComments: () => {dispatch(fetchComments())},
     fetchPromos: () => {dispatch(fetchPromos())},
-    resetFeedbackForm: () => {dispatch(actions.reset('feedback'))}
+    fetchLeaders: () => {dispatch(fetchLeaders())},
+    resetFeedbackForm: () => {dispatch(actions.reset('feedback'))},
+    postComment: (dishId, rating, author, comment) => 
+                 dispatch(postComment(dishId, rating, author, comment)),
+    postFeedback: (firstname, lastname, telnum, email, agree, contactType, message) => 
+                 dispatch(postFeedback(firstname, lastname, telnum, email, agree, contactType, message))
 });
 
 class Main extends Component {
@@ -59,6 +63,7 @@ class Main extends Component {
         this.props.fetchDishes();
         this.props.fetchComments();
         this.props.fetchPromos();
+        this.props.fetchLeaders();
     }
     
     render() {
@@ -75,20 +80,25 @@ class Main extends Component {
                       promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
                       promosLoading={this.props.promotions.isLoading}
                       promosErrMess={this.props.promotions.errMess}
-                      leader={this.props.leaders.filter((leader) => leader.featured)[0]} />
+                      leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]}
+                      leadersLoading={this.props.leaders.isLoading}
+                      leadersErrMess={this.props.leaders.errMess} />
             );
         };
 
         const ContactPage = () => {
             return(
-                <Contact resetFeedbackForm={this.props.resetFeedbackForm} />
+                <Contact resetFeedbackForm={this.props.resetFeedbackForm}
+                         postFeedback={this.props.postFeedback} />
             );
         }
 
         const AboutPage = () => {
             return(
                 // <About leaders={this.state.leaders} />
-                <About leaders={this.props.leaders} />
+                <About leaders={this.props.leaders.leaders}
+                       isLoading={this.props.leaders.isLoading}
+                       errMess={this.props.leaders.errMess} />
             );
         };
 
