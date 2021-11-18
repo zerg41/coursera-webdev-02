@@ -3,13 +3,14 @@ import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbIte
 import { Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 
     function RenderDish({dish}) {
         return (
             <div className="col-12 col-md-5 m-1">
                 <Card>
-                    <CardImg width="100%" src={dish.image} alt={dish.name} />
+                    <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle>{dish.name}</CardTitle>
                         <CardText>{dish.description}</CardText>
@@ -53,7 +54,8 @@ import { Loading } from './LoadingComponent';
         const addCommentFunc = props.addComment;
         // const selectedDishId = props.dish.id; --using this way will occur an error
         const isLoading = props.isLoading;
-        const errorMessage = props.errMess;
+        const errorMessage = props.dishesErrMess;
+        const commentsErrMess = props.commentsErrMess;
 
         if (isLoading) {
             return(

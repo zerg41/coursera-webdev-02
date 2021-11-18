@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl'; // connect to a server
 
 // function RenderMenuItem(props) --props as a parameter using when we don't know what we want to recieve
 
@@ -11,7 +12,8 @@ import { Loading } from './LoadingComponent';
             // <Card onClick={() => onClick(dish.id)}> --no longer avaliable since onClick not passed by MainComponent
             <Link to={`/menu/${dish.id}`} > {/* --only `` backward quotes allows (~ w/o shift)*/}
                 <Card>
-                    <CardImg width="100%" src={dish.image} alt={dish.name} />
+                    {/* <CardImg width="100%" src={dish.image} alt={dish.name} /> --fetch image directly from a server that accept any changes in images*/}
+                    <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
                     <CardImgOverlay>
                         <CardTitle>{dish.name}</CardTitle>
                     </CardImgOverlay>
