@@ -15,6 +15,7 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postComment, fetchComments, fetchDishes, fetchPromos } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const mapStateToProps = (state) => ({
     // return { --preffered to use {} instead return
@@ -135,24 +136,28 @@ class Main extends Component {
                     </div>
                 </Navbar> */}
                 <Header />
-                {/* <div className="container"> */}
-                    {/* <Menu dishes={this.state.dishes}
-                          onClick={(dishId) => this.onDishSelect(dishId)} /> */}
-                    {/* <DishDetail selectedDish={this.state.dishes
-                                             .filter((dish) => dish.id === this.state.selectedDish)[0]} /> */}
+                <TransitionGroup>
+                    <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+                        {/* <div className="container"> */}
+                            {/* <Menu dishes={this.state.dishes}
+                                onClick={(dishId) => this.onDishSelect(dishId)} /> */}
+                            {/* <DishDetail selectedDish={this.state.dishes
+                                                    .filter((dish) => dish.id === this.state.selectedDish)[0]} /> */}
 
-                    {/* Configuring the Router */}
-                    <Switch>
-                        <Route path="/home" component={ HomePage } />
-                        <Route exact path="/contact" component={ ContactPage } />
-                        {/* <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} /> } /> */}
-                        <Route exact path="/about" component={ AboutPage } />
-                        <Route exact path="/menu" component={ MenuPage } />
-                        <Route path='/menu/:dishId' component={DishWithId} />
-                        {/* Setting the default path */}
-                        <Redirect to="/home" />
-                    </Switch>
-                {/* </div> */}
+                            {/* Configuring the Router */}
+                            <Switch>
+                                <Route path="/home" component={ HomePage } />
+                                <Route exact path="/contact" component={ ContactPage } />
+                                {/* <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} /> } /> */}
+                                <Route exact path="/about" component={ AboutPage } />
+                                <Route exact path="/menu" component={ MenuPage } />
+                                <Route path='/menu/:dishId' component={DishWithId} />
+                                {/* Setting the default path */}
+                                <Redirect to="/home" />
+                            </Switch>
+                        {/* </div> */}
+                    </CSSTransition>
+                </TransitionGroup>
                 <Footer />
             </div>
         );
