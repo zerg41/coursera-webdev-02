@@ -39,7 +39,7 @@ function Footer(props) {
                     </div>
                 </div>
                 <div className="row justify-content-center">             
-                    <div className="col-auto">
+                    <div className="col-auto pt-3">
                         <p>© Copyright 2021 Ristorante Con Fusion by zerg41</p>
                     </div>
                 </div>
