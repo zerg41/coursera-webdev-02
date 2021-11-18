@@ -51,7 +51,8 @@ import { baseUrl } from '../shared/baseUrl';
 
         const selectedDish = props.dish;
         const comments = props.comments;
-        const addCommentFunc = props.addComment;
+        // const addCommentFunc = props.addComment;
+        const addCommentFunc = props.postComment;
         // const selectedDishId = props.dish.id; --using this way will occur an error
         const isLoading = props.isLoading;
         const errorMessage = props.dishesErrMess;

@@ -3,15 +3,58 @@ import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl'; // for communicate with a server
 
 /** ADD ACTIONS **/
-export const addComment = (dishId, rating, author, comment) => ({
+// export const addComment = (dishId, rating, author, comment) => ({
+//     type: ActionTypes.ADD_COMMENT,
+//     payload: {
+//         dishId: dishId,
+//         rating: rating,
+//         author: author,
+//         comment: comment
+//     }
+// });
+export const addComment = (comment) => ({
     type: ActionTypes.ADD_COMMENT,
-    payload: {
+    payload: comment
+});
+
+export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+
+    const newComment = {
         dishId: dishId,
         rating: rating,
         author: author,
         comment: comment
     }
-});
+    newComment.date = new Date().toISOString();
+
+    return fetch(baseUrl + 'comments', {
+        method: 'POST',
+        body: JSON.stringify(newComment),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+        .then(response => {
+            if (response.ok) {
+                return response;
+            }
+            else { // in case of wrong URL like
+                let error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        }, error => { // in case of impossibility to connect to to a server for example
+            let errmess = new Error(error.message);
+            throw errmess;
+        })
+        .then(response => response.json())
+        .then(response => dispatch(addComment(response)))
+        .catch(error => {
+            console.log('Post comments', error.message);
+            alert('Your comment could not be posted\n Error: ' + error.message);
+        });
+}
 
 
 /** DISHES LOADING ACTIONS **/
