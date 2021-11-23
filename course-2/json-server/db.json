@@ -217,6 +217,14 @@
       "comment": "Mmm...delicious!",
       "date": "2021-11-18T15:04:18.922Z",
       "id": 21
+    },
+    {
+      "dishId": 1,
+      "rating": "5",
+      "author": "123",
+      "comment": "324234",
+      "date": "2021-11-18T18:25:05.602Z",
+      "id": 22
     }
   ],
   "promotions": [
